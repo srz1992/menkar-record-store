@@ -6,21 +6,24 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <script src="vendors/angular.min.js"></script>
     <script src="vendors/jquery-3.3.1.min.js"></script>
     <script src="scripts/client.js"></script>
 
 </head>
 <body>
+    <div ng-app="myApp">
+    <div ng-controller="LaunchpadController as LC">
+
     <section>
     <h1>Record store</h1>
-    <input type="text" placeholder="Artist" id="in-artist">
-    <input type="text" placeholder="Album Name" id="in-album">
-    <input type="text" placeholder="Year" id="in-year">
-    <input type="text" placeholder="Genre List" id="in-genre">
-    <button type="submit" id='add-record'>Add Record</button>
+    <input type="text" placeholder="Artist" ng-model="LC.artistIn">
+    <input type="text" placeholder="Album Name" ng-model="LC.albumIn">
+    <input type="number" placeholder="Year" ng-model="LC.yearIn">
+    <input type="text" placeholder="Genre List" ng-model="LC.genreIn">
+    <button type="submit" ng-click="LC.getRecord()"id='add-record'>Add Record</button>
     </section>  
 
-    <div>
         <h2>All Records</h2>
         <table class="table table-hover table-condensed table-bordered">
             <tr>
@@ -30,10 +33,15 @@
                 <th>Genres</th>
             </tr>
             <tbody id="records">
-                <!-- Records added by Javascript -->
-                
+                        <tr ng-repeat="record in LC.records" ng-click="LC.removeMe($index)">
+                            <td>{{record.artist}}</td>
+                            <td>{{record.albumName}}</td>
+                            <td>{{record.year}}</td>
+                            <td>{{record.genreList}}</td>
+                        </tr>
             </tbody>
         </table>
+    </div>
     </div>
 </body>
 </html>
