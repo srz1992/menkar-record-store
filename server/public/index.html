@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <script src="vendors/jquery-3.3.1.min.js"></script>
+    <script src="scripts/client.js"></script>
+
+</head>
+<body>
+    <section>
+    <h1>Record store</h1>
+    <input type="text" placeholder="Artist" id="in-artist">
+    <input type="text" placeholder="Album Name" id="in-album">
+    <input type="text" placeholder="Year" id="in-year">
+    <input type="text" placeholder="Genre List" id="in-genre">
+    <button type="submit" id='add-record'>Add Record</button>
+    </section>  
+
+    <div>
+        <h2>All Records</h2>
+        <table class="table table-hover table-condensed table-bordered">
+            <tr>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Year</th>
+                <th>Genres</th>
+            </tr>
+            <tbody id="records">
+                <!-- Records added by Javascript -->
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
